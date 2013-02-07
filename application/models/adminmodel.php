@@ -62,7 +62,7 @@ class AdminModel extends CI_Model {
      * @return boolean True if query success, false if not.
      */
     public function delUser($id) {
-        $query = $this->db->delete('user', array('id' => $id));
+        $query = $this->db->delete('users', array('id' => $id));
 
         if ($query == TRUE) {
             return true;

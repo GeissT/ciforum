@@ -28,17 +28,50 @@ class Admin extends CI_Controller {
         $this->load->view('admin/users', $data);
         $this->load->view('includes/footer');
     }
-    
+
     /*
      * START USER MANIPULATION
      */
-    
+
     public function editUserById($id) {
-        echo 'id to edit = ' . $id;
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->load->model('usermodel');
+        $this->load->model('adminmodel');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['user'] = $this->usermodel->getUserBy('id', $id);
+            $data['id'] = $id;
+
+            $data['loggedIn'] = $this->session->userdata('loggedIn');
+
+            $this->load->view('includes/header', $data);
+            $this->load->view('admin/user_edit', $data);
+            $this->load->view('includes/footer');
+        } else {
+            $details['username'] = $this->input->post('username');
+            
+            if($this->input->post('role') != 'blank') {
+                $details['role'] = $this->input->post('role');
+            }
+            
+            if($this->input->post('password') != '') {
+                $details['password'] = $this->input->post('password');
+            }
+            
+            $details['email'] = $this->input->post('email');
+            
+            if($this->adminmodel->editUser($id, $details) == true) {
+                redirect(site_url('admin/users'));
+            }
+        }
     }
-    
+
     public function delUserById($id) {
-        echo 'id to del = ' . $id;
+        $this->load->model('adminmodel');
+
+        $this->adminmodel->delUser($id);
+        redirect(site_url('admin/users'));
     }
 
     /**
