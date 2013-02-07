@@ -1,0 +1,134 @@
+body {
+    background-color: #bfd7bb;
+    font-family: Arial;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#wrapper {
+    width: 70%;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+#headwrapper {
+    width: 70%;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+#logowrapper {
+    width: 70%;
+    margin: auto;
+    background-color: #237cd4;
+}
+
+#logowrapper a:hover{
+    text-decoration: underline;
+}
+
+#nav {
+    width: 70%;
+    margin: auto;
+}
+
+#nav a:hover {
+    text-decoration: underline;
+}
+/*----------- */
+/* Index Page */
+/*----------- */
+#forumTitle {
+    border-bottom: 1px solid;
+    background-color: #237cd4;
+}
+
+#indexForumItemTitle {
+    padding-top: 5px;
+}
+
+#indexForumItemTitle a {
+    color: #237cd4;
+}
+
+#indexForumItemTitle a:hover {
+    color: #000000;
+}
+
+#postcount {
+    border-bottom: 1px solid;
+    background-color: #237cd4;
+}
+
+#borderUnderRow {
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+
+#main {
+    background-color: #FFFFFF;
+}
+/*----------- */
+/* Forum Page */
+/*----------- */
+#forumPostTitle {
+    border-bottom: 1px solid;
+    background-color: #237cd4;
+}
+
+#forumPostAuthor {
+    border-bottom: 1px solid;
+    background-color: #237cd4;
+}
+
+#borderUnderPostRow {
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+
+#borderUnderPostRow a {
+    color: #237cd4;
+}
+
+#borderUnderPostRow a:hover {
+    color: #000000;
+}
+
+#postReplyCount {
+    border-bottom: 1px solid;
+    background-color: #237cd4;
+}
+
+#noPosts {
+    padding: 10px;
+}
+/*----------- */
+/* Posts Page */
+/*----------- */
+#postAuthor {
+    text-align: right;
+    border-bottom: 1px solid;
+    width: 15%;
+}
+
+#postTitle {
+    border-bottom: 1px solid;
+    background-color: #ffffff;
+}
+/*---------- */
+/* User Page */
+/*---------- */
+
+#textWrapper {
+    padding: 10px;
+}
+
+/*----------------- */
+/* Error Login Page */
+/*----------------- */
+#errorMessage {
+    padding: 10px;
+}
