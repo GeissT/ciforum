@@ -42,6 +42,10 @@ $route['forum/(:num)'] = "forum/byID/$1";
 $route['post/(:num)'] = "post/byID/$1";
 $route['admin/user/(:num)'] = "admin/editUserByID/$1";
 $route['admin/user/delete/(:num)'] = "admin/delUserByID/$1";
+$route['admin/post/(:num)'] = "admin/editPostById/$1";
+$route['admin/post/delete/(:num)'] = "admin/delPostByID/$1";
+$route['admin/forum/(:num)'] = "admin/editForumByID/$1";
+$route['admin/forum/delete/(:num)'] = "admin/delForumByID/$1";
 $route['default_controller'] = "index";
 $route['404_override'] = '';
 

@@ -83,19 +83,13 @@ class AdminModel extends CI_Model {
         // This is a really sloppy way of doing this but it will have to do...
         $toupdate = null;
 
-        if (isset($details['fid'])) {
-            $toupdate['fid'] = $details['fid'];
+        if (isset($details['title'])) {
+            $toupdate['postTitle'] = $details['title'];
         }
-        if (isset($details['pid'])) {
-            $toupdate['pid'] = $details['pid'];
+        if (isset($details['content'])) {
+            $toupdate['postContent'] = $details['content'];
         }
-        if (isset($details['postTitle'])) {
-            $toupdate['postTitle'] = $details['postTitle'];
-        }
-        if (isset($details['postContent'])) {
-            $toupdate['postContent'] = $details['postContent'];
-        }
-        $this->db->where('id', $id);
+        $this->db->where('pid', $id);
         $query = $this->db->update('posts', $toupdate);
 
         if ($query == true) {
@@ -104,15 +98,15 @@ class AdminModel extends CI_Model {
             return false;
         }
     }
-    
+
     /**
      * Delete a Post
      * @param integer $id Post ID
      * @return boolean True if query success, false if not
      */
     public function delPost($id) {
-        $query = $this->db->delete('posts', array('id' => $id));
-        
+        $query = $this->db->delete('posts', array('pid' => $id));
+
         if ($query == true) {
             return true;
         } else {
@@ -121,15 +115,15 @@ class AdminModel extends CI_Model {
     }
 
     // FORUM/CATEGORY MANIPULATION //
-    
+
     /**
      * Add a forum
      * @param array $details
      * @return boolean True on query success, false if not.
      */
     public function addForum($details = array()) {
-        $query = $this->db->insert('forums', array('title' => $details['title'], 
-                                                   'description' => $details['description']));
+        $query = $this->db->insert('forums', array('title' => $details['title'],
+            'description' => $details['description']));
 
         if ($query == TRUE) {
             return true;
@@ -137,7 +131,7 @@ class AdminModel extends CI_Model {
             return false;
         }
     }
-    
+
     /**
      * Edit a Forum
      * @param integer $id Forum ID
@@ -154,8 +148,8 @@ class AdminModel extends CI_Model {
         if (isset($details['description'])) {
             $toupdate['description'] = $details['description'];
         }
-        
-        $this->db->where('id', $id);
+
+        $this->db->where('fid', $id);
         $query = $this->db->update('forums', $toupdate);
 
         if ($query == true) {
@@ -164,7 +158,7 @@ class AdminModel extends CI_Model {
             return false;
         }
     }
-    
+
     /**
      * Delete a forum
      * @param integer $id Forum ID
@@ -172,14 +166,14 @@ class AdminModel extends CI_Model {
      */
     public function delForum($id) {
         $query = $this->db->delete('forums', array('id' => $id));
-        
+
         if ($query == true) {
             return true;
         } else {
             return false;
         }
     }
-        
+
 }
 
 ?>
