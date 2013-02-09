@@ -4,6 +4,10 @@ class ForumModel extends CI_Model {
         parent::__construct();
     }
     
+    /**
+     * Get absolutely all posts.
+     * @return array Returns array of posts in CodeIgniters Format.
+     */
     public function getPosts() {
         $query = $this->db->get('posts');
         return $query->result();

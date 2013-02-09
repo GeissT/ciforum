@@ -61,6 +61,11 @@ class UserModel extends CI_Model {
         }
     }
     
+    /**
+     * Checks if the user is an Administrator
+     * @param string $username The username of the user to be checked
+     * @return boolean True if query success and false if not.
+     */
     public function isAdmin($username) {
         $query = $this->db->get_where('users', array('username' => $username, 'role' => 'admin'));
         if($query->num_rows() > 0) {
@@ -70,6 +75,11 @@ class UserModel extends CI_Model {
         }
     }
     
+    /**
+     * Checks if the user is an Owner of the site.
+     * @param string $username The username to be checked.
+     * @return boolean True on query success, false if not.
+     */
     public function isOwner($username) {
         $query = $this->db->get_where('users', array('username' => $username, 'role' => 'owner'));
         if($query->num_rows() > 0) {
