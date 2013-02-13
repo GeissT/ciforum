@@ -106,8 +106,9 @@ class AdminModel extends CI_Model {
      */
     public function delPost($id) {
         $query = $this->db->delete('posts', array('pid' => $id));
+        $query2 = $this->db->delete('replies', array('pid' => $id));
 
-        if ($query == true) {
+        if ($query == true && $query2 == true) {
             return true;
         } else {
             return false;
@@ -166,8 +167,9 @@ class AdminModel extends CI_Model {
      */
     public function delForum($id) {
         $query = $this->db->delete('forums', array('id' => $id));
+        $query2 = $this->db->delete('posts', array('fid' => $id));
 
-        if ($query == true) {
+        if ($query == true && $query2 == true) {
             return true;
         } else {
             return false;
